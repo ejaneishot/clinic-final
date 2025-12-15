@@ -33,6 +33,21 @@ class LoginScreen(tk.Frame):
         self.container = tk.Frame(self, bg=self.colors["bg_main"])
         self.container.pack(fill="both", expand=True)
 
+                # --- TOP LEFT BACK BUTTON ---
+        self.btn_back = tk.Button(
+            self.container,
+            text="← Back",
+            bg=self.colors["bg_main"],
+            fg=self.colors["text_dark"],
+            bd=0,
+            font=("Arial", 11, "bold"),
+            cursor="hand2",
+            activebackground=self.colors["bg_main"],
+            command=self.go_back_to_landing
+        )
+        self.btn_back.place(x=20, y=20)  # top-left corner
+
+
         # The Card (White Box)
         self.card = tk.Frame(self.container, bg=self.colors["card_bg"], padx=40, pady=40, relief="flat")
         self.card.place(relx=0.5, rely=0.5, anchor="center")
@@ -216,3 +231,7 @@ class LoginScreen(tk.Frame):
                 self.controller.show_view(doctor_view.DoctorScreen)
         else:
             messagebox.showerror("Failed", "ID Not Found")
+    
+    def go_back_to_landing(self):
+        import landing_page   # lazy import prevents circular error
+        self.controller.show_view(landing_page.ClinicLandingPage)

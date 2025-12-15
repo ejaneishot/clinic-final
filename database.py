@@ -3,9 +3,9 @@ from tkinter import messagebox
 
 # --- CONFIGURATION ---
 DB_CONFIG = {
-    'host': 'localhost',
+    'host': '127.0.0.1',
     'user': 'root',
-    'password': 'degeasave',  # <--- CHECK PASSWORD
+    'password': '13245',  # <--- CHECK PASSWORD
     'database': 'clinicappointmentsystem',
     'cursorclass': pymysql.cursors.DictCursor,
     'autocommit': True
